@@ -4,7 +4,8 @@
   "description": "service for the product overview widget",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "server-dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,9 @@
     "cors": "^2.8.5",
     "eslint": "^8.0.1",
     "express": "^4.17.1",
-    "mocha": "^9.1.2"
+    "mocha": "^9.1.2",
+    "mongodb": "^4.1.3",
+    "mongoose": "^6.0.11",
+    "nodemon": "^2.0.14"
   }
 }
