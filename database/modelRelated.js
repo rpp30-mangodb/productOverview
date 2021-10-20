@@ -10,5 +10,5 @@ const relatedSchema = new Schema({
   ]
 });
 
-const RelatedProducts = mongoose.model('RelatedProducts', relatedSchema);
-module.exports = RelatedProducts;
+const Related = mongoose.model('Related', relatedSchema);
+module.exports = Related;

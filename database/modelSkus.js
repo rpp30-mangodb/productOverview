@@ -10,5 +10,5 @@ const skusSchema = new Schema({
   }
 });
 
-const ProductSkus = mongoose.model('ProductSkus', skusSchema);
-module.exports = ProductSkus;
+const Skus = mongoose.model('Skus', skusSchema);
+module.exports = Skus;

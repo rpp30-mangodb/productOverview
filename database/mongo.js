@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ProductFeatures = require('./modelFeatures.js');
-const ProductPhotos = require('./modelPhotos.js');
-const ProductList = require('./modelProducts.js');
-const RelatedProducts = require('./modelRelated.js');
-const ProductSkus = require('./modelSkus.js');
-const ProductStyles = require('./modelStyles.js');
+const Features = require('./modelFeatures.js');
+const Photos = require('./modelPhotos.js');
+const List = require('./modelProducts.js');
+const Related = require('./modelRelated.js');
+const Skus = require('./modelSkus.js');
+const Styles = require('./modelStyles.js');
 
 mongoose.connect('mongodb://localhost/atelierdb', {useNewUrlParser: true, useUnifiedTopology: true});
 
