@@ -14,16 +14,16 @@ const stylesSchema = new Schema({
       'original_price': Number,
       'sale_price': Number,
       'default?': Boolean, // <-- this key = dafault_style in csv file vs default? api
-      'photos': [
-        ProductPhotos.results
-        // ...
-      ],
-      'skus': {
-        `${ProductSkus.sku_id}`: {
-          ProductSkus.results
-        }
-        // ...
-      }
+      // 'photos': [
+      //   ProductPhotos.results
+      //   // ...
+      // ],
+      // 'skus': {
+      //   `${ProductSkus.sku_id}`: {
+      //     ProductSkus.results
+      //   }
+      //   // ...
+      // }
     }
   ]
 });

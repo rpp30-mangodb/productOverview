@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const featuresSchema = new Schema({
   'id': Number,
   'product_id': Number, // <-- this links to ProductList id
-  'product_list': ProductList,
+  // 'product_list': ProductList,
   'features': [
     {
       'feature': String,
