@@ -3,8 +3,11 @@ const Schema = mongoose.Schema;
 
 const featuresSchema = new Schema({
   'id': Number,
-  'product_id': Number, // <-- this links to ProductList id
-  'product_list': ProductList,
+  'product_id': {
+    'type': Number,
+    'unique': true
+  },
+  // 'product_list': ProductList,
   'features': [
     {
       'feature': String,
@@ -14,19 +17,5 @@ const featuresSchema = new Schema({
   ]
 });
 
-const ProductFeatures = mongoose.model('ProductFeatures', featuresSchema);
-module.exports = ProductFeatures;
-
-
-
-// const feature = new ProductFeatures({
-//   product_id: 47430,
-//   features: [
-//     {
-//       feature: 'aaron',
-//       value: 'fife'
-//     }
-//   ]
-// })
-
-// feature.save();
+const Features = mongoose.model('Features', featuresSchema);
+module.exports = Features;

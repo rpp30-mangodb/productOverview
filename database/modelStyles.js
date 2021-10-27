@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ProductPhotos = require('./modelPhotos.js')
-const ProductSkus = require('./modelSkus.js')
+const Photos = require('./modelPhotos.js')
+const Skus = require('./modelSkus.js')
 
 
 const stylesSchema = new Schema({
@@ -14,19 +14,19 @@ const stylesSchema = new Schema({
       'original_price': Number,
       'sale_price': Number,
       'default?': Boolean, // <-- this key = dafault_style in csv file vs default? api
-      'photos': [
-        ProductPhotos.results
-        // ...
-      ],
-      'skus': {
-        `${ProductSkus.sku_id}`: {
-          ProductSkus.results
-        }
-        // ...
-      }
+      // 'photos': [
+      //   ProductPhotos.results
+      //   // ...
+      // ],
+      // 'skus': {
+      //   `${ProductSkus.sku_id}`: {
+      //     ProductSkus.results
+      //   }
+      //   // ...
+      // }
     }
   ]
 });
 
-const ProductStyles = mongoose.model('ProductStyles', stylesSchema);
-module.exports = ProductStyles;
+const Styles = mongoose.model('Styles', stylesSchema);
+module.exports = Styles;

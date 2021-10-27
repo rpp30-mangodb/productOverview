@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const productsSchema = new Schema({
+const listSchema = new Schema({
   'id': Number,
   'name': String,
   'slogan': String,
@@ -10,5 +10,5 @@ const productsSchema = new Schema({
   'default_price': Number,
 });
 
-const ProductList = mongoose.model('ProductList', productsSchema);
-module.exports = ProductList;
+const List = mongoose.model('List', listSchema);
+module.exports = List;

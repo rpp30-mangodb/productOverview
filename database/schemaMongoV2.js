@@ -1,4 +1,4 @@
-const ProductList = new Schema({
+const List = new Schema({
   'id': Number,
   'name': String,
   'slogan': String,
@@ -12,10 +12,10 @@ const ProductList = new Schema({
 
 
 
-const ProductFeatures = new Schema({
+const Features = new Schema({
   'id': Number,
   'product_id': Number, // <-- this links to ProductList id
-  'product_list': ProductList,
+  'product_list': List,
   'features': [
     {
       'feature': String,
@@ -27,7 +27,7 @@ const ProductFeatures = new Schema({
 
 
 
-const ProductPhotos = new Schema({
+const Photos = new Schema({
   'id': Number,
   'style_id': Number,
   'results': {
@@ -38,7 +38,7 @@ const ProductPhotos = new Schema({
 
 
 
-const ProductSkus = new Schema({
+const Skus = new Schema({
   'id': Number,
   'style_id': Number,
   'results': {
@@ -49,7 +49,7 @@ const ProductSkus = new Schema({
 
 
 
-const ProductStyles = new Schema({
+const Styles = new Schema({
   'id': Number, // <-- this will link to Photos & Skus style_id
   'product_id': Number,
   'results': [
@@ -60,12 +60,12 @@ const ProductStyles = new Schema({
       'sale_price': Number,
       'default?': Boolean, // <-- this key = dafault_style in csv file vs default? api
       'photos': [
-        ProductPhotos.results
+        Photos.results
         // ...
       ],
       'skus': {
-        `${ProductSkus.sku_id}`: {
-          ProductSkus.results
+        `${Skus.sku_id}`: {
+          Skus.results
         }
         // ...
       }
@@ -75,7 +75,7 @@ const ProductStyles = new Schema({
 
 
 
-const RelatedProducts = new Schema({
+const Related = new Schema({
   'id': Number,
   'current_product_id': Number,
   'current_relatedProducts': [
