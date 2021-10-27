@@ -4,10 +4,8 @@ const Schema = mongoose.Schema;
 const photosSchema = new Schema({
   'id': Number,
   'style_id': Number,
-  'results': {
-    'thumbnail_url': String,
-    'url': String
-  }
+  'thumbnail_url': String,
+  'url': String
 });
 
 const Photos = mongoose.model('Photos', photosSchema);
