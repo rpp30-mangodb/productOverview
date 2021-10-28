@@ -9,7 +9,7 @@ app.use(cors());
 
 app.get('/products', (req, res) => {
   // need to account for a page count???
-  db.lists.find({}).limit(5).exec((err, products) => {
+  db.collection('lists').findOne({ id: 1 }, (err, products) => {
     if (err) {
       console.log(err);
       res.status(500).send('No data was found');
@@ -21,7 +21,7 @@ app.get('/products', (req, res) => {
 
 app.get('/products/:product_id', (req, res) => {
   const productId = req.params.product_id;
-  db.productfeatures.findOne({ id: productId }, (err, productInfo) => {
+  db.collection('productfeatures').findOne({ id: productId }, (err, productInfo) => {
     if (err) {
       console.log(err);
       res.status(500).send('No data was found');
@@ -33,7 +33,7 @@ app.get('/products/:product_id', (req, res) => {
 
 app.get('/products/:product_id/styles', (req, res) => {
   const productId = req.params.product_id;
-  db.productstyles.findOne({ product_id: productId }, (err, productInfo) => {
+  db.collection('productstyles').findOne({ product_id: productId }, (err, productInfo) => {
     if (err) {
       console.log(err);
       res.status(500).send('No data was found');
@@ -45,12 +45,12 @@ app.get('/products/:product_id/styles', (req, res) => {
 
 app.get('/products/:product_id/related', (req, res) => {
   const productId = req.params.product_id;
-  db.relatedsjoin.findOne({ product_id: productId }, (err, productInfo) => {
+  db.collection('relatedsjoin').findOne({ product_id: productId }, (err, productInfo) => {
     if (err) {
       console.log(err);
       res.status(500).send('No data was found');
     } else {
-      res.status(200).send(productInfo.related_products);
+      res.status(200).send(productInfo);
     }
   })
 });
