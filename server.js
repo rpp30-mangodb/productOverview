@@ -17,7 +17,7 @@ app.get('/products', (req, res) => {
       res.status(200).send(products);
     }
   });
-};
+});
 
 app.get('/products/:product_id', (req, res) => {
   const productId = req.params.product_id;
