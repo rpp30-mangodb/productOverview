@@ -106,6 +106,7 @@ module.exports = db;
       ],
       {allowDiskUse: true})
 
+
     __________ STYLESPHOTOSSKUS __________
     stylesphotos + skus
     createIndexes for aggregation
@@ -127,6 +128,7 @@ module.exports = db;
         {$out: 'stylesphotosskus'}
       ],
       {allowDiskUse: true})
+
 
     __________ PRODUCTSTYLES __________
     stylesphotosskus grouping
@@ -168,6 +170,7 @@ module.exports = db;
         {$out: 'productstyles'}
       ],
       {allowDiskUse: true})
+
 
     __________ RELATEDSJOIN __________
     relateds grouping

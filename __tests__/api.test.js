@@ -1,4 +1,5 @@
 const frisby = require('frisby');
+const Joi = frisby.Joi;
 
 it('should be a teapot', function () {
   return frisby.get('http://httpbin.org/status/418')
@@ -21,6 +22,12 @@ it ('should return a status of 200 when calling product styles', function () {
   return frisby
     .get('http://localhost:9000/products/19/styles')
     .expect('status', 200);
+});
+
+it ('should return product styles', function () {
+  return frisby
+    .get('http://localhost:9000/products/19/styles')
+    .expect('bodyContains', ['product_id']);
 });
 
 it ('should return a status of 200 when calling related products', function () {
