@@ -9,6 +9,13 @@ const getProductStyles = (req, res) => {
       console.log(err);
       res.status(500).send('No data was found');
     } else {
+      if (productInfo === null) {
+        productInfo = {
+          product_id: productId,
+          results: [],
+          skus: {}
+        }
+      }
       res.status(200).send(productInfo);
     }
   })

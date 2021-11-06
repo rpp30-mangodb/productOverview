@@ -91,7 +91,7 @@ module.exports = db;
     1,958,102 documents
 
       db.styles.aggregate([
-        {$match:{productId:14}},
+        {$match:{productId:2}},
         {$lookup:{from:'photos',localField:'id',foreignField:'styleId',as:'photos'}},
         {$addFields:{'style_id':'$id', 'default?':'$default_style'}},
         {$project:{'photos._id':0, 'photos.id':0, 'photos.styleId':0, 'photos.__v':0, 'id':0, 'default_style':0}}
@@ -116,7 +116,7 @@ module.exports = db;
     1,958,102 documents
 
       db.stylesphotos.aggregate([
-        {$match:{style_id:14}},
+        {$match:{style_id:8}},
         {$lookup:{from:'skus',localField:'style_id',foreignField:'styleId',as:'skus'}},
         {$addFields:{skus:{$arrayToObject:{$map: {input:'$skus', in:{k: {$toString:'$$this.id'}, v:'$$this'}}}}}}
       ]).pretty()
@@ -140,7 +140,7 @@ module.exports = db;
       PRODUCTSTYLES: product_id
 
       db.stylesphotosskus.aggregate([
-        {$match:{productId:1}},
+        {$match:{productId:2}},
         {$group:{_id:'$productId', results:{$push:{
           style_id:'$style_id',
           name:'$name',
@@ -194,6 +194,17 @@ module.exports = db;
         {$addFields:{product_id:'$_id'}},
         {$project:{_id:0}},
         {$out: 'relatedsjoin'}
+      ],
+      {allowDiskUse: true})
+
+
+
+****TESTING WHICH PRODUCT IDS ARE MISSING****
+      db.productstyles.aggregate([
+        {$match:{product_id:{$lte:50}}},
+        {$addFields:{product_id:'$product_id'}},
+        {$project:{results:0,skus:0}}
+        {$out:'test'}
       ],
       {allowDiskUse: true})
 
