@@ -5,10 +5,12 @@ const getProductList = require('./database/controllers/products');
 const getProductId = require('./database/controllers/product_id');
 const getProductStyles = require('./database/controllers/styles');
 const getProductRelateds = require('./database/controllers/relateds');
-
-const PORT = 9000;
+const config = require('./config.js');
 const app = express();
+
 app.use(cors());
+
+const { server: { HOST, PORT } } = config;
 
 
 app.get('/products', (req, res) => { getProductList(req, res); });
