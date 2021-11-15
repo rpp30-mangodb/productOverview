@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const csv = require('csv-parser')
 const fs = require('fs');
 const path = require('path');
+const config = require('.././config.js');
 
-mongoose.connect('mongodb://localhost/atelierdb', {useNewUrlParser: true, useUnifiedTopology: true});
+const { db: { HOST, PORT, NAME } } = config;
+
+mongoose.connect(`mongodb://${HOST}/${NAME}`, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
-db.on('error', (err) => console.log('atelierdb has an error:', err) );
+db.on('error', (err) => console.log(`${NAME} has an error:`, err) );
 db.once('open', () => {
-  console.log('atelierdb is connected');
+  console.log(`${NAME} is connected`);
 });
 
 
