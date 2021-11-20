@@ -12,7 +12,9 @@ const config = {
   db: {
     HOST: process.env.HOST,
     PORT: process.env.DB,
-    NAME: process.env.NAME
+    NAME: process.env.NAME,
+    USERNAME: process.env.USERNAME,
+    PW: process.env.PW
   }
 };
 

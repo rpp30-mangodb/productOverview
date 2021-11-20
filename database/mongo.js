@@ -5,8 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const config = require('.././config.js');
 
-const { db: { HOST, PORT, NAME } } = config;
+const { db: { HOST, PORT, NAME, USERNAME, PW } } = config;
 
+// mongoose.connect(`mongodb://${USERNAME}:${PW}@${HOST}/${NAME}`, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connect(`mongodb://${HOST}/${NAME}`, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
@@ -210,5 +211,13 @@ module.exports = db;
         {$out:'test'}
       ],
       {allowDiskUse: true})
+
+
+****LOADER.IO
+loaderio-dc7d141c3a7b11d7a26d5e372b790d03
+
+http://3.134.87.183:9000/loaderio-dc7d141c3a7b11d7a26d5e372b790d03.txt
+http://3.134.87.183:9000/loaderio-dc7d141c3a7b11d7a26d5e372b790d03.html
+http://3.134.87.183:9000/loaderio-dc7d141c3a7b11d7a26d5e372b790d03/
 
 */
